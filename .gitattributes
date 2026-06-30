@@ -1,0 +1,17 @@
+# Keep binary documents/images byte-for-byte (no line-ending conversion)
+*.pdf  binary
+*.docx binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+
+# Normalize text files to LF in the repo
+*.html text eol=lf
+*.css  text eol=lf
+*.js   text eol=lf
+*.svg  text eol=lf
+*.md   text eol=lf
+*.json text eol=lf
+*.txt  text eol=lf
