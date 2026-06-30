@@ -17,12 +17,12 @@
   <text x="96" y="52" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#ffffff">Business Hub</text>
   <text x="96" y="76" font-family="Arial, sans-serif" font-size="13" fill="#b9c4d4">Agent Application Document</text>
 
-  <!-- photo box -->
-  <rect x="330" y="130" width="150" height="170" rx="8" fill="#f5f7fb" stroke="#c9d2e0" stroke-width="2" stroke-dasharray="7 6"/>
-  <circle cx="405" cy="200" r="34" fill="#dbe3ef"/>
-  <circle cx="405" cy="188" r="13" fill="#aab8cd"/>
-  <path d="M378 232 q27 -34 54 0 z" fill="#aab8cd"/>
-  <text x="405" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#7a8699">ADD PHOTO</text>
+  <!-- official seal -->
+  <circle cx="405" cy="205" r="60" fill="#fff7e0" stroke="#f4b400" stroke-width="3"/>
+  <circle cx="405" cy="205" r="48" fill="none" stroke="#f4b400" stroke-width="1.5" stroke-dasharray="3 4"/>
+  <text x="405" y="198" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="800" fill="#d99e00">BUSINESS</text>
+  <text x="405" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="800" fill="#d99e00">HUB</text>
+  <text x="405" y="242" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="700" fill="#b08600">OFFICIAL FORM</text>
 
   <!-- form labels/lines (left) -->
   <g font-family="Arial, sans-serif" font-size="13" fill="#7a8699">

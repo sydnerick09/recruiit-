@@ -188,7 +188,11 @@ img, svg { max-width: 100%; display: block; }
 }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(244, 180, 0, .2); }
 .field textarea { resize: vertical; }
-.field input[type="file"] { padding: .6rem; background: var(--bg-alt); cursor: pointer; }
+.upload-label { display: inline-flex; align-items: center; gap: .35rem; }
+.field input[type="file"] { padding: .9rem; background: rgba(244, 180, 0, .06); border: 1.5px dashed var(--gold); border-radius: var(--radius-sm); cursor: pointer; }
+.field input[type="file"]:hover { background: rgba(244, 180, 0, .12); }
+.submit-help { background: rgba(244, 180, 0, .1); border: 1px solid rgba(244, 180, 0, .35); border-radius: var(--radius-sm); padding: .85rem 1rem; margin-top: 1.6rem; color: var(--navy-700); font-size: .95rem; text-align: center; }
+.btn-submit { margin-top: .9rem; font-size: 1.15rem; padding: 1.15rem 2rem; }
 .hint { font-size: .82rem; color: var(--muted); }
 .hint em { color: var(--body); font-style: normal; font-weight: 600; }
 .radio-row { display: flex; flex-wrap: wrap; gap: 1rem; margin: .2rem 0 .5rem; }

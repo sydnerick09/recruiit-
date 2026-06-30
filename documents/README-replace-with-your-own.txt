@@ -23,7 +23,7 @@ keep working:
   4. Re-deploy the site (push to GitHub, Vercel updates itself).
 
 ------------------------------------------------------------------
-THE PHOTO ON THE WEBSITE
+THE PREVIEW IMAGE ON THE WEBSITE
 ------------------------------------------------------------------
 The document preview image shown on the website is:
         ../assets/document-photo.svg

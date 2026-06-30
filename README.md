@@ -2,8 +2,8 @@
 
 A professional, responsive recruitment website for **Business Hub**. It recruits
 agents in **any country** to bring premium clients, with monthly pay starting from
-**$300 USD**. Applicants download a document, complete it (with their photo), and
-submit it — along with their details — straight to your Gmail.
+**$300 USD**. Applicants download a document, complete it, and submit it — along
+with their details — straight to your Gmail.
 
 > **Live application email:** `businesshub.comke@gmail.com`
 
@@ -18,12 +18,12 @@ submit it — along with their details — straight to your Gmail.
   - Previous profession (or “No”), marketing/other experience
   - **How did you find us?**, online-business/agent experience
   - Good with data?, where they learned computer skills
-  - **File upload** — attach the completed document/photo
+  - **File upload** — attach the completed document (edit on device, or print → fill → scan → upload)
 - **Submits directly to Gmail** via [FormSubmit](https://formsubmit.co) — no server
   needed. A thank-you page (`thank-you.html`) is shown after submitting.
 - **Downloadable documents** in `/documents` — a real **PDF** and editable **Word**
   file the applicant fills in and sends back.
-- **Photo/document preview** placeholder in `/assets` you can swap for your own.
+- **Document preview** placeholder in `/assets` you can swap for your own.
 
 ---
 

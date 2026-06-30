@@ -124,7 +124,7 @@
         <li>
           <span class="step-no">2</span>
           <h3>Work on it</h3>
-          <p>Fill in the document from your file and add the requested photo.</p>
+          <p>Fill it in on your device — or print it, complete it by hand, and scan it.</p>
         </li>
         <li>
           <span class="step-no">3</span>
@@ -184,8 +184,8 @@
         <span class="kicker">Step 1 & 2</span>
         <h2>Download &amp; complete the document</h2>
         <p class="section-sub">
-          Download the official Business Hub application document. Fill it in from your file,
-          add the photo where shown, then submit it in the form below.
+          Download the official Business Hub application document. Fill it in on your device, or
+          print it, complete it by hand and scan it — then attach it in the form below and click Submit.
         </p>
       </div>
 
@@ -193,7 +193,7 @@
         <!-- Photo / document preview placeholder -->
         <figure class="doc-photo">
           <img src="assets/document-photo.svg" alt="Business Hub application document preview" />
-          <figcaption>Official document preview — your photo goes here.</figcaption>
+          <figcaption>Official Business Hub application document.</figcaption>
         </figure>
 
         <!-- Download card -->
@@ -208,9 +208,9 @@
           </a>
           <ul class="doc-steps">
             <li>1. Download the file above.</li>
-            <li>2. Open it and fill in every section.</li>
-            <li>3. Add your photo where shown.</li>
-            <li>4. Save it, then attach it in the form below and click <strong>Submit</strong>.</li>
+            <li>2. Fill in every section — on your device, or print it and write by hand.</li>
+            <li>3. If you filled it by hand, scan it or take clear photos of the pages.</li>
+            <li>4. 📎 Attach the finished file in the form below and click <strong>Submit</strong>.</li>
           </ul>
           <p class="doc-note">
             Once you click <strong>Submit</strong>, your completed document and details are sent
@@ -336,10 +336,14 @@
           </div>
 
           <div class="field field-full">
-            <label for="document-upload">Attach your completed document <span class="req">*</span></label>
+            <label for="document-upload" class="upload-label">📎 Attach your completed document <span class="req">*</span></label>
             <input type="file" id="document-upload" name="attachment"
               accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required />
-            <small class="hint">Upload the document you downloaded and completed (PDF, Word, or photo). Take the photo from your file and attach it here.</small>
+            <small class="hint">
+              Upload the document you downloaded and filled in. Using an Android or iPhone and can't edit it on the phone?
+              Print it, complete it by hand, then <strong>scan it or take clear photos of the pages</strong> and upload the
+              file here. Accepted: PDF, Word, JPG or PNG.
+            </small>
           </div>
 
           <div class="field field-full">
@@ -355,9 +359,15 @@
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-block btn-lg">Submit application ✈</button>
+        <p class="submit-help">
+          ✅ Filled everything in and attached your document above? Click the button below — your form and
+          file are sent straight to our email.
+        </p>
+        <button type="submit" id="submitBtn" class="btn btn-primary btn-block btn-lg btn-submit">
+          📧 Submit application to email
+        </button>
         <p class="form-foot">
-          Your application is sent securely to <strong>businesshub.comke@gmail.com</strong>.
+          📩 Your application is sent securely to <strong>businesshub.comke@gmail.com</strong>.
         </p>
       </form>
     </div>

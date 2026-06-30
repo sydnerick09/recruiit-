@@ -80,13 +80,13 @@
         );
         return;
       }
-      var btn = form.querySelector('button[type="submit"]');
+      var btn = document.getElementById("submitBtn");
       if (btn) {
         btn.textContent = "Submitting…";
         btn.disabled = true;
         // Re-enable shortly in case the user stays on the page
         setTimeout(function () {
-          btn.textContent = "Submit application ✈";
+          btn.textContent = "📧 Submit application to email";
           btn.disabled = false;
         }, 8000);
       }
