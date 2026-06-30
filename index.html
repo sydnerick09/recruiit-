@@ -129,7 +129,7 @@
         <li>
           <span class="step-no">3</span>
           <h3>Submit it</h3>
-          <p>Attach the completed document in the form and click <strong>Submit</strong>.</p>
+          <p>Click <strong>Submit</strong> — your email opens ready to send, with your document attached.</p>
         </li>
         <li>
           <span class="step-no">4</span>
@@ -213,8 +213,9 @@
             <li>4. 📎 Attach the finished file in the form below and click <strong>Submit</strong>.</li>
           </ul>
           <p class="doc-note">
-            Once you click <strong>Submit</strong>, your completed document and details are sent
-            directly to our team at <a href="mailto:businesshub.comke@gmail.com">businesshub.comke@gmail.com</a>.
+            When you click <strong>Submit</strong>, your email app opens a message to
+            <a href="mailto:businesshub.comke@gmail.com">businesshub.comke@gmail.com</a> with your details
+            filled in — just attach this completed document and press <strong>Send</strong>.
           </p>
         </div>
       </div>
@@ -228,26 +229,12 @@
         <span class="kicker">Step 3</span>
         <h2>Agent application form</h2>
         <p class="section-sub">
-          Fill in your details and attach your completed document. When you click
-          <strong>Submit</strong>, everything is sent straight to our Gmail.
+          Fill in your details below. When you click <strong>Submit</strong>, your email app opens with
+          everything ready — just attach your completed document and press <strong>Send</strong>.
         </p>
       </div>
 
-      <form
-        id="applyForm"
-        class="form"
-        action="https://formsubmit.co/businesshub.comke@gmail.com"
-        method="POST"
-        enctype="multipart/form-data"
-      >
-        <!-- FormSubmit configuration -->
-        <input type="hidden" name="_subject" value="New Business Hub Agent Application" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="https://recruit-bice-theta.vercel.app/thank-you.html" />
-        <!-- Honeypot anti-spam -->
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-
+      <form id="applyForm" class="form" novalidate>
         <div class="form-grid">
           <div class="field">
             <label for="name">Full name <span class="req">*</span></label>
@@ -323,7 +310,7 @@
               <label class="radio"><input type="radio" name="Online Experience" value="Yes" required /> Yes</label>
               <label class="radio"><input type="radio" name="Online Experience" value="No" /> No</label>
             </div>
-            <textarea name="Online Experience Details" rows="2" placeholder="If yes, briefly describe it. If no, leave blank."></textarea>
+            <textarea id="onlineDetails" name="Online Experience Details" rows="2" placeholder="If yes, briefly describe it. If no, leave blank."></textarea>
           </div>
 
           <div class="field field-full">
@@ -336,13 +323,13 @@
           </div>
 
           <div class="field field-full">
-            <label for="document-upload" class="upload-label">📎 Attach your completed document <span class="req">*</span></label>
+            <label for="document-upload" class="upload-label">📎 Pick your completed document</label>
             <input type="file" id="document-upload" name="attachment"
-              accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required />
+              accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
             <small class="hint">
-              Upload the document you downloaded and filled in. Using an Android or iPhone and can't edit it on the phone?
-              Print it, complete it by hand, then <strong>scan it or take clear photos of the pages</strong> and upload the
-              file here. Accepted: PDF, Word, JPG or PNG.
+              Choose the document you downloaded and filled in (this reminds you of the file name).
+              <strong>When your email opens after you click Submit, attach this file with the 📎 paper-clip, then press Send.</strong><br />
+              On a phone and can't edit it? Print it, fill it by hand, then scan it or take clear photos and attach those. Accepted: PDF, Word, JPG or PNG.
             </small>
           </div>
 
@@ -360,15 +347,34 @@
         </div>
 
         <p class="submit-help">
-          ✅ Filled everything in and attached your document above? Click the button below — your form and
-          file are sent straight to our email.
+          ✅ When you click the button below, your <strong>email app (Gmail) opens</strong> with all your
+          answers already filled in and addressed to us. Just <strong>attach your document</strong> and press
+          <strong>Send</strong>.
         </p>
         <button type="submit" id="submitBtn" class="btn btn-primary btn-block btn-lg btn-submit">
-          📧 Submit application to email
+          📧 Submit &amp; open my email
         </button>
         <p class="form-foot">
-          📩 Your application is sent securely to <strong>businesshub.comke@gmail.com</strong>.
+          📩 Your application goes to <strong>businesshub.comke@gmail.com</strong>.
         </p>
+
+        <!-- Shown after the user clicks submit -->
+        <div id="postSubmit" class="post-submit" hidden>
+          <h3>📧 Your email is opening…</h3>
+          <p>
+            A new email to <strong>businesshub.comke@gmail.com</strong> should now be open with your details
+            filled in. <strong>Attach your completed document</strong> and press <strong>Send</strong>.
+          </p>
+          <p class="post-submit-sub">Didn't an email open? Use one of these:</p>
+          <div class="post-submit-actions">
+            <a id="gmailLink" class="btn btn-primary btn-sm" href="#" target="_blank" rel="noopener">Open in Gmail</a>
+            <a id="mailtoLink" class="btn btn-ghost btn-sm" href="#">Open default email app</a>
+            <button type="button" id="copyBtn" class="btn btn-ghost btn-sm">Copy my details</button>
+          </div>
+          <p class="post-submit-foot">
+            Or email us directly: <a href="mailto:businesshub.comke@gmail.com">businesshub.comke@gmail.com</a>
+          </p>
+        </div>
       </form>
     </div>
   </section>
@@ -399,7 +405,7 @@
         </details>
         <details>
           <summary>How do I submit the document?</summary>
-          <p>Download the document, complete it and add your photo, then attach it in the form and click Submit. It is sent straight to our Gmail.</p>
+          <p>Download the document and complete it. Fill in the form and click Submit — your email app opens with your details ready. Attach the completed document and press Send.</p>
         </details>
       </div>
     </div>

@@ -18,9 +18,10 @@ with their details — straight to your Gmail.
   - Previous profession (or “No”), marketing/other experience
   - **How did you find us?**, online-business/agent experience
   - Good with data?, where they learned computer skills
-  - **File upload** — attach the completed document (edit on device, or print → fill → scan → upload)
-- **Submits directly to Gmail** via [FormSubmit](https://formsubmit.co) — no server
-  needed. A thank-you page (`thank-you.html`) is shown after submitting.
+  - File picker to remember the completed document (attached in the email)
+- **Opens the applicant's email app on Submit** — the form builds a ready-to-send
+  message (all answers pre-filled, addressed to your Gmail). No backend, no signup,
+  no activation. The applicant attaches their document and presses Send.
 - **Downloadable documents** in `/documents` — a real **PDF** and editable **Word**
   file the applicant fills in and sends back.
 - **Document preview** placeholder in `/assets` you can swap for your own.
@@ -66,17 +67,24 @@ vercel --prod     # production deploy
 
 ---
 
-## 📨 How submissions work (important — one-time step)
+## 📨 How submissions work
 
-The form posts to `https://formsubmit.co/businesshub.comke@gmail.com`.
+No backend, no signup, no activation. When the applicant clicks **Submit**,
+`js/main.js` gathers every answer, builds an email addressed to
+`businesshub.comke@gmail.com`, and opens the applicant's own email app (Gmail,
+Mail, Outlook, etc.) with the subject and body pre-filled. The applicant then
+**attaches their completed document** and presses **Send** — the email arrives
+from their own address, straight to your inbox.
 
-The **first** time anyone submits the form, FormSubmit emails a one-time
-**activation link** to `businesshub.comke@gmail.com`. Open that email once and
-click the link to confirm ownership. After that, every application — including the
-attached document — arrives in that inbox automatically.
+If no email app opens, a fallback panel appears with an **Open in Gmail** button,
+an **Open default email app** link, and a **Copy my details** button.
 
-To change the destination email, edit the `action="..."` URL in `index.html`
-(and the `_next` thank-you page if you rename it).
+> **Note on attachments:** browsers cannot auto-attach a file to an email for
+> security reasons, so the applicant attaches the document themselves in the
+> message that opens (the form reminds them, and includes the file name).
+
+To change the destination email, edit the `RECIPIENT` value at the top of the
+form logic in [`js/main.js`](js/main.js).
 
 ---
 

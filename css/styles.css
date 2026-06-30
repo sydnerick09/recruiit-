@@ -193,6 +193,13 @@ img, svg { max-width: 100%; display: block; }
 .field input[type="file"]:hover { background: rgba(244, 180, 0, .12); }
 .submit-help { background: rgba(244, 180, 0, .1); border: 1px solid rgba(244, 180, 0, .35); border-radius: var(--radius-sm); padding: .85rem 1rem; margin-top: 1.6rem; color: var(--navy-700); font-size: .95rem; text-align: center; }
 .btn-submit { margin-top: .9rem; font-size: 1.15rem; padding: 1.15rem 2rem; }
+.post-submit { margin-top: 1.6rem; padding: 1.5rem; border: 2px solid var(--gold); border-radius: var(--radius); background: rgba(244, 180, 0, .08); text-align: center; }
+.post-submit h3 { font-size: 1.3rem; margin-bottom: .6rem; }
+.post-submit p { color: var(--navy-700); }
+.post-submit-sub { margin-top: 1rem; font-weight: 600; font-size: .95rem; }
+.post-submit-actions { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin: .9rem 0; }
+.post-submit-foot { font-size: .9rem; }
+.post-submit-foot a { color: var(--gold-dark); font-weight: 600; }
 .hint { font-size: .82rem; color: var(--muted); }
 .hint em { color: var(--body); font-style: normal; font-weight: 600; }
 .radio-row { display: flex; flex-wrap: wrap; gap: 1rem; margin: .2rem 0 .5rem; }

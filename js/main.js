@@ -65,31 +65,112 @@
     select.appendChild(frag);
   }
 
-  /* ---- Form: gentle file-size guard (FormSubmit attachment limit) ---- */
+  /* ---- Form: build an email and open the applicant's mail app on submit ---- */
+  var RECIPIENT = "businesshub.comke@gmail.com";
   var form = document.getElementById("applyForm");
-  var fileInput = document.getElementById("document-upload");
-  var MAX_BYTES = 5 * 1024 * 1024; // ~5 MB
 
-  if (form && fileInput) {
+  if (form) {
+    var fileInput = document.getElementById("document-upload");
+    var postSubmit = document.getElementById("postSubmit");
+
+    // Read a field's value by element id
+    function val(id) {
+      var el = document.getElementById(id);
+      return el && el.value ? el.value.trim() : "";
+    }
+    // Read the chosen value of a radio group by its name
+    function radio(name) {
+      var el = form.querySelector('input[name="' + name + '"]:checked');
+      return el ? el.value : "";
+    }
+
+    function buildEmail() {
+      var fileName = fileInput && fileInput.files && fileInput.files[0] ? fileInput.files[0].name : "";
+
+      var rows = [
+        ["Full Name", val("name")],
+        ["Age", val("age")],
+        ["Email", val("email")],
+        ["Phone / WhatsApp", val("phone")],
+        ["Country of Origin", val("country")],
+        ["Address", val("address")],
+        ["Previous Profession", val("profession")],
+        ["Marketing / Other Experience", val("marketing")],
+        ["How They Found Us", val("found")],
+        ["Where They Learned Computer Skills", val("computer")],
+        ["Online business / agent before?", radio("Online Experience")],
+        ["Online experience details", val("onlineDetails")],
+        ["Good with data?", radio("Good With Data")],
+        ["Additional message", val("message")],
+      ];
+
+      var lines = ["BUSINESS HUB — AGENT APPLICATION", ""];
+      rows.forEach(function (r) {
+        lines.push(r[0] + ": " + (r[1] || "-"));
+      });
+      lines.push("");
+      lines.push("--------------------------------------------------");
+      lines.push(
+        "IMPORTANT: Please attach your completed application document" +
+          (fileName ? " (" + fileName + ")" : "") +
+          " to this email before sending."
+      );
+      lines.push("Sent from the Business Hub website.");
+
+      return {
+        subject: "New Business Hub Agent Application" + (val("name") ? " — " + val("name") : ""),
+        body: lines.join("\n"),
+      };
+    }
+
     form.addEventListener("submit", function (e) {
-      var file = fileInput.files && fileInput.files[0];
-      if (file && file.size > MAX_BYTES) {
-        e.preventDefault();
-        alert(
-          "Your document is larger than 5 MB. Please compress it or save it as a smaller PDF/photo, then try again."
-        );
+      e.preventDefault();
+
+      // Basic validation (form has novalidate so we control the messaging)
+      if (!form.checkValidity()) {
+        form.reportValidity();
         return;
       }
-      var btn = document.getElementById("submitBtn");
-      if (btn) {
-        btn.textContent = "Submitting…";
-        btn.disabled = true;
-        // Re-enable shortly in case the user stays on the page
-        setTimeout(function () {
-          btn.textContent = "📧 Submit application to email";
-          btn.disabled = false;
-        }, 8000);
+
+      var mail = buildEmail();
+      var subjectEnc = encodeURIComponent(mail.subject);
+      var bodyEnc = encodeURIComponent(mail.body);
+
+      var mailtoURL = "mailto:" + RECIPIENT + "?subject=" + subjectEnc + "&body=" + bodyEnc;
+      var gmailURL =
+        "https://mail.google.com/mail/?view=cm&fs=1&to=" +
+        encodeURIComponent(RECIPIENT) +
+        "&su=" + subjectEnc +
+        "&body=" + bodyEnc;
+
+      // Wire up the fallback buttons shown in the panel
+      var gmailLink = document.getElementById("gmailLink");
+      var mailtoLink = document.getElementById("mailtoLink");
+      var copyBtn = document.getElementById("copyBtn");
+      if (gmailLink) gmailLink.href = gmailURL;
+      if (mailtoLink) mailtoLink.href = mailtoURL;
+      if (copyBtn) {
+        copyBtn.onclick = function () {
+          var text = "To: " + RECIPIENT + "\nSubject: " + mail.subject + "\n\n" + mail.body;
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(
+              function () { copyBtn.textContent = "✅ Copied!"; },
+              function () { copyBtn.textContent = "Press Ctrl+C to copy"; }
+            );
+          } else {
+            copyBtn.textContent = "Select the text and copy it";
+          }
+        };
       }
+
+      // Reveal the fallback panel first (in case no mail app is configured)
+      if (postSubmit) {
+        postSubmit.hidden = false;
+        postSubmit.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
+      // Open the applicant's email app with everything pre-filled
+      window.location.href = mailtoURL;
     });
   }
 })();
