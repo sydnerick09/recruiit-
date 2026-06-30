@@ -70,7 +70,6 @@
   var form = document.getElementById("applyForm");
 
   if (form) {
-    var fileInput = document.getElementById("document-upload");
     var postSubmit = document.getElementById("postSubmit");
 
     // Read a field's value by element id
@@ -85,8 +84,6 @@
     }
 
     function buildEmail() {
-      var fileName = fileInput && fileInput.files && fileInput.files[0] ? fileInput.files[0].name : "";
-
       var rows = [
         ["Full Name", val("name")],
         ["Age", val("age")],
@@ -111,9 +108,7 @@
       lines.push("");
       lines.push("--------------------------------------------------");
       lines.push(
-        "IMPORTANT: Please attach your completed application document" +
-          (fileName ? " (" + fileName + ")" : "") +
-          " to this email before sending."
+        "IMPORTANT: Please attach your completed application document to this email before sending."
       );
       lines.push("Sent from the Business Hub website.");
 
